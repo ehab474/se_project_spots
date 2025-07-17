@@ -1,0 +1,120 @@
+.profile {
+  display: flex;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__avatar {
+  height: 190px;
+  width: 190px;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+}
+.profile__edit-btn {
+  font-weight: 500;
+  color: #212121;
+  font-size: 16px;
+  line-height: 1;
+  margin-top: auto;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 70%;
+  padding: 0;
+}
+
+.profile__edit-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.profile__name {
+  margin: 0 0 12px;
+  color: #212121;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 420px;
+}
+
+.profile__description {
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 420px;
+  line-height: 100%;
+  font-weight: 500;
+  color: #212121;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  opacity: 70%;
+}
+
+.profile__add-btn {
+  margin-left: auto;
+  background-color: #212121;
+  border-radius: 8px;
+  height: 50px;
+  width: 179.87px;
+  padding: 20.5 36.44;
+  gap: 8px;
+  color: #fcf5e5;
+  border: 0;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+}
+.profile__add-btn:hover {
+  opacity: 80%;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin: 0 0 12px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    max-width: 288px;
+  }
+
+  .profile__description {
+    margin: 0 0 32px;
+    max-width: 288px;
+  }
+
+  .profile__column {
+    margin: 0 0 20px;
+  }
+
+  .profile__add-btn {
+    align-items: center;
+    margin: 0;
+    width: 100%;
+  }
+}
