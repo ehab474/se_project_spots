@@ -22,6 +22,6 @@ Good luck and have fun!
 git link
 
 https://ehab474.github.io/se_project_spots/
-
+https://ehab474.github.io/se_project_spots/
 this video link
 https://www.loom.com/share/a503cda21443400e9801711ec606c43f?sid=d9f874ff-c55e-4bbe-b60b-482435937f57
