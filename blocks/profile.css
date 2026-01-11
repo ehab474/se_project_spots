@@ -28,11 +28,11 @@
   gap: 8px;
   opacity: 70%;
   padding: 0;
+  cursor: pointer;
 }
 
 .profile__edit-btn:hover {
-  opacity: 100%;
-  cursor: pointer;
+  opacity: 0.8;
 }
 
 .profile__name {
