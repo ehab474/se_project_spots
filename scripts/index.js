@@ -4,10 +4,10 @@ console.log("Edit modal found:", editProfileModal);
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
-  "#profile-name-input"
+  "#profile-name-input",
 );
 const editProfileDescriptionInput = editProfileModal.querySelector(
-  "#profile-description-input"
+  "#profile-description-input",
 );
 const editNewPostModal = document.querySelector("#new-post-modal");
 const newPostImageInput = document.querySelector("#card-image-input");
@@ -23,7 +23,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 
 newPostFormElement.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  console.log(editProLinkInput.value, editCaptionInput.value);
+
   newPostModal.classList.remove("modal_is-opened");
 });
 editProfileBtn.addEventListener("click", function () {
