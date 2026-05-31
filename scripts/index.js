@@ -42,11 +42,43 @@ const editCaptionInput = document.querySelector("#profile-caption-input");
 
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
+//index.js:45 Uncaught TypeError: Cannot read properties of null (reading 'querySelector'
 const newPostFormElement = newPostModal.querySelector(".modal__form");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const addCardFormEl = newPostModal.querySelector(".modal__submit-btn");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
+
+const cardTemplate = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  let cardElement = cardTemplate.cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardTitleEl.textContent = data.name;
+
+  const cardLikeBtnEl = cardElement.querySelector(".card__like-button");
+  cardLikeBtnEl.addEventListener("click", () => {
+    cardLikeBtnEl.classList.toggle("card__like-button_active");
+
+  });
+
+  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
+  cardDeleteBtnEl.addEventListener("click", () => {
+    //cardDeleteBtnEl.closest(".card").remove
+    cardElement.remove();
+    cardElement = null;
+});
+
+  return cardElement;
+}
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
@@ -56,11 +88,7 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
-newPostFormElement.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  console.log(newPostImageInput.value, editCaptionInput.value);
-  newPostModal.classList.remove("modal_is-opened");
-});
+newPostFormElement.addEventListener("submit", submitHandler);
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -89,12 +117,34 @@ function handleEditProfileSubmit(evt) {
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   //editProfileModal.classList.remove("modal_is-opened");
+  const cardElement = getCardElement({
+    name: editCaptionInput.value,
+    link: newPostImageInput.value,
+  });
+  cardsList.append(cardElement);
   closeModal(editProfileModal);
   console.log("submitting");
 }
 
+addCardFormEl.addEventListener("submit", submitHandler);
+
+
 initialCards.forEach(function (item) {
-  console.log(item.name);
-  console.log(item.link);
+  const cardElement = getCardElement(item);
+  cardsList.append(cardElement);
+    
 });
-editProfileForm.addEventListener("submit", handleEditProfileSubmit);
+// editProfileForm.addEventListener("submit", handleEditProfileSubmit);
+
+function submitHandler(evt) {
+  evt.preventDefault();
+  console.log(editCaptionInput.value);
+  console.log(newPostImageInput.value);
+  const cardElement = getCardElement({
+    name: editCaptionInput.value,
+    link: newPostImageInput.value,
+  });
+  cardsList.append(cardElement);
+
+  editNewPostModal.classList.remove("modal_is-opened");
+}
