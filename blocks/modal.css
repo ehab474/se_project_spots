@@ -37,17 +37,17 @@
   position: relative;
 }
 
-.modal__close-btn {
+.modal__close-btn_type_preview {
   position: absolute;
   top: 32px;
   right: 50px;
   width: 40px;
   height: 40px;
   border: none;
-  background: transparent url("../images/close.svg") center no-repeat;
+  background: transparent url("../images/Close.svg") center no-repeat;
   background-size: 35px 35px;
   cursor: pointer;
-  opacity: 40%;
+  opacity: 0.4;
 }
 
 .modal__close_type_preview {
@@ -105,13 +105,14 @@
   font-weight: 500;
   font-family: Poppins;
   line-height: 100%;
+  cursor: pointer;
 }
 
 .modal__submit-btn:hover {
   opacity: 0.8;
 }
 .modal__close_type_preview {
-  background-color: black;
+  background-color: #ffffff;
 }
 
 .modal__close_type_preview:hover {
@@ -123,7 +124,7 @@
 }
 
 .modal__image {
-  max-width: 80vw;
+  /*max-width: 80vw;*/
   max-height: 80vw;
   width: 100%;
   object-fit: contain;
