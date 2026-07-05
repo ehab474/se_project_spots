@@ -31,7 +31,7 @@ const initialCards = [
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
-//console.log("Edit modal found:", editProfileModal);
+
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
@@ -40,7 +40,7 @@ const editProfileNameInput = editProfileModal.querySelector(
 const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
-const editNewPostModal = document.querySelector("#new-post-modal");
+//const editNewPostModal = document.querySelector("#new-post-modal");
 const newPostImageInput = document.querySelector("#card-image-input");
 const editCaptionInput = document.querySelector("#profile-caption-input");
 
@@ -65,7 +65,7 @@ const cardTemplate = document
 const cardsList = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  let cardElement = cardTemplate.cloneNode(true);
+  const cardElement = cardTemplate.cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
 
@@ -147,10 +147,8 @@ initialCards.forEach(function (item) {
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function submitHandlerNewPost(evt) {
-  newPostFormElement.reset();
+  //newPostFormElement.reset();
   evt.preventDefault();
- // console.log(editCaptionInput.value);
-  //console.log(newPostImageInput.value);
   const cardElement = getCardElement({
     name: editCaptionInput.value,
     link: newPostImageInput.value,
@@ -161,4 +159,4 @@ function submitHandlerNewPost(evt) {
   closeModal(newPostModal);
 }
 
-addCardFormEl.addEventListener("submit", submitHandlerNewPost);
+//addCardFormEl.addEventListener("submit", submitHandlerNewPost);

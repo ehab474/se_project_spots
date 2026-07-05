@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  cursor: pointer
+  cursor: pointer;
 }
 
 .card__image {
@@ -18,7 +18,8 @@
 .card__image:hover,
 .card__image:focus {
   transform: scale(1.02); /* slightly enlarges the image */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* adds a soft shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 3; /* adds a soft shadow */
 }
 
 .card__delete-button {
