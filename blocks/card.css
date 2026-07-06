@@ -19,7 +19,7 @@
 .card__image:focus {
   transform: scale(1.02); /* slightly enlarges the image */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 3; /* adds a soft shadow */
+   /* adds a soft shadow */
 }
 
 .card__delete-button {
@@ -29,9 +29,13 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  z-index: 1;
+  border: none;
+  background-color: transparent;
 }
 
 .card__delete-button:hover {
+  background-image: url(../images/deletehover.svg);
   opacity: 0.4;
 }
 
@@ -65,7 +69,7 @@
 }
 
 .card__like-button_active {
-  background-image: url(../images/like-active.svg);
+  background-image: url(../images/Unionheart.svg);
   opacity: 1;
 }
 

@@ -12,6 +12,7 @@
   padding: 10px;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   opacity: 0;
+  z-index: 2;
   transition:
     visibility 0s linear 0.5s,
     opacity 0.5s linear;
@@ -124,8 +125,8 @@
 }
 
 .modal__image {
-  /*max-width: 80vw;*/
-  max-height: 80vw;
+  max-width: 80vw;
+  max-height: 80vh;
   width: 100%;
   object-fit: contain;
   display: block;

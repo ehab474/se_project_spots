@@ -147,7 +147,6 @@ initialCards.forEach(function (item) {
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function submitHandlerNewPost(evt) {
-  //newPostFormElement.reset();
   evt.preventDefault();
   const cardElement = getCardElement({
     name: editCaptionInput.value,
@@ -157,6 +156,7 @@ function submitHandlerNewPost(evt) {
 
   //editNewPostModal.classList.remove("modal_is-opened");
   closeModal(newPostModal);
+  newPostFormElement.reset();
 }
 
 //addCardFormEl.addEventListener("submit", submitHandlerNewPost);
