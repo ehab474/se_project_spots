@@ -18,6 +18,19 @@
     opacity 0.5s linear;
 }
 
+.modal__close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent url("../images/Close.svg") center no-repeat;
+  background-size: 35px 35px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+
 .modal_type_preview {
   padding: 0 16px;
 }
@@ -40,8 +53,8 @@
 
 .modal__close-btn_type_preview {
   position: absolute;
-  top: 32px;
-  right: 50px;
+  top: -5px;
+  right: -35px
   width: 40px;
   height: 40px;
   border: none;
@@ -135,6 +148,9 @@
 
 .modal__caption {
   color: white;
+  background-color: #212121;
+  
+
 }
 
 
