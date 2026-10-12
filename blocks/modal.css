@@ -85,7 +85,9 @@
 }
 
 .modal__label {
-  margin: 0 0 32px;
+  color: rgba(33, 33, 33, 0.7);
+  margin-bottom: 32px;
+  display: block;
 }
 
 .modal__input {
@@ -99,6 +101,10 @@
   margin: 8px 0 0;
   color: #212121;
   display: block;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255,0 0, 0.6);
 }
 
 .modal__input::placeholder {
@@ -154,6 +160,15 @@
   border-radius: 8px;
 }
 
+.modal__error {
+  display: block;
+  color: #ff0000;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 8px;
+  
+}
 
 @media screen and (max-width: 627px) {
   .modal__title {

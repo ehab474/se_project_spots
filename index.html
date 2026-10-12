@@ -57,24 +57,32 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">Edit profile</h2>
-          <form class="modal__form">
+          <form class="modal__form" id="edit-profile-form" novalidate>
             <label for="profile-name-input" class="modal__label">
               Name
-              <input required
+              <input
+                required
+                minlength="2"
+                maxlength="40"
                 id="profile-name-input"
                 type="text"
                 class="modal__input"
                 placeholder="type your name"
               />
+              <span id="profile-name-input-error" class="modal__error"></span>
             </label>
             <label for="profile-description-input" class="modal__label">
               Description
               <input
+                required
+                minlength="2"
+                maxlength="200"
                 id="profile-description-input"
                 type="text"
                 class="modal__input"
                 placeholder="Describe your self"
               />
+              <span id="profile-description-input-error" class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
@@ -86,30 +94,36 @@
         <div class="modal__container">
           <button type="button" class="modal__close-btn"></button>
           <h2 class="modal__title">New post</h2>
-          <form class="modal__form">
+          <form class="modal__form" id="card-form" novalidate>
             <label for="card-image-input" class="modal__label">
               Image link
               <input
-                id="card-image-input"
+                required
+                id="card-link-input"
                 type="url"
                 class="modal__input"
                 placeholder="Paste a link to the picture"
               />
+              <span id="card-link-input-error" class="modal__error"></span>
             </label>
             <label for="profile-caption-input" class="modal__label">
               Caption
               <input
+                required
+                minlength="2"
+                maxlength="30"
                 id="profile-caption-input"
                 type="text"
                 class="modal__input"
                 placeholder="Type your caption"
               />
+              <span class="modal__error"></span>
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
           </form>
         </div>
       </div>
-      
+
       <!-- this preview -->
       <div class="modal modal_type_preview" id="preview-modal">
         <div class="modal__image-container">
@@ -126,6 +140,7 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
