@@ -41,7 +41,8 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
 //const editNewPostModal = document.querySelector("#new-post-modal");
-const newPostImageInput = document.querySelector("#card-image-input");
+const cardModal = document.querySelector("#new-post-modal")
+const newPostImageInput = document.querySelector("#card-link-input");
 const editCaptionInput = document.querySelector("#profile-caption-input");
 
 const newPostBtn = document.querySelector(".profile__new-post-btn");
@@ -58,7 +59,7 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = document.querySelector(".modal__image");
 const previewCaptionEl = document.querySelector(".modal__caption");
-const cardSubmitBtn = cardModal.querySelector(".modal__button");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -93,8 +94,17 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function handleOverLayClick (evt) {
+  if(evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget)
+  }
+}
+
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  modal.addEventListener("click", (evt) => {
+    handleOverLayClick(evt);
+  });
 }
 
 function closeModal(modal) {
@@ -107,7 +117,7 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   //editProfileModal.classList.add("modal_is-opened");
-  resetValidation(editForm, editProfileNameInput, editProfileDescriptionInput);
+  resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput]);
   openModal(editProfileModal);
 });
 
@@ -134,7 +144,7 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  disableButton(cardSubmitBtn);
+  //disableButton(cardSubmitBtn);
   closeModal(editProfileModal);
   
 }
