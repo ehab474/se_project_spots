@@ -177,7 +177,7 @@ function submitHandlerNewPost(evt) {
   closeModal(newPostModal);
   newPostFormElement.reset();
   //todo : add parameters for button element and config:
-  disableButton(buttonEl);
+ disableButton(cardSubmitBtn, settings);
 }
 
 //addCardFormEl.addEventListener("submit", submitHandlerNewPost);

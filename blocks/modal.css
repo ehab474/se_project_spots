@@ -126,6 +126,7 @@
   font-family: Poppins;
   line-height: 100%;
   cursor: pointer;
+  border: none;
 }
 .modal__submit-btn_disabled {
   background-color: #21212140;
