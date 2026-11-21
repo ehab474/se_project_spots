@@ -41,7 +41,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
   "#profile-description-input",
 );
 //const editNewPostModal = document.querySelector("#new-post-modal");
-const cardModal = document.querySelector("#new-post-modal")
+const cardModal = document.querySelector("#new-post-modal");
 const newPostImageInput = document.querySelector("#card-link-input");
 const editCaptionInput = document.querySelector("#profile-caption-input");
 
@@ -94,21 +94,28 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function handleOverLayClick (evt) {
-  if(evt.target === evt.currentTarget) {
-    closeModal(evt.currentTarget)
+function handleOverLayClick(evt) {
+  if (evt.target === evt.currentTarget) {
+    closeModal(evt.currentTarget);
   }
 }
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  modal.addEventListener("click", (evt) => {
-    handleOverLayClick(evt);
-  });
+  modal.addEventListener("click", handleOverLayClick);
+  document.addEventListener("keyup", handleEsc);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  modal.removeEventListener("click", handleOverLayClick);
+  document.removeEventListener("keyup", handleEsc);
+}
+function handleEsc(evt) {
+  if (evt.key === "Escape") {
+    const activePop = document.querySelector(".modal_is-opened");
+    closeModal(activePop);
+  }
 }
 
 newPostFormElement.addEventListener("submit", submitHandlerNewPost);
@@ -117,7 +124,11 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   //editProfileModal.classList.add("modal_is-opened");
-  resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput], settings);
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings,
+  );
   openModal(editProfileModal);
 });
 
@@ -126,10 +137,9 @@ editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-
-  previewModalCloseBtn.addEventListener("click", function () {
-    closeModal(previewModal);
-  });
+previewModalCloseBtn.addEventListener("click", function () {
+  closeModal(previewModal);
+});
 newPostBtn.addEventListener("click", function () {
   //newPostModal.classList.add("modal_is-opened");
   openModal(newPostModal);
@@ -146,10 +156,7 @@ function handleEditProfileSubmit(evt) {
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   //disableButton(cardSubmitBtn);
   closeModal(editProfileModal);
-  
 }
-
-
 
 initialCards.forEach(function (item) {
   const cardElement = getCardElement(item);
@@ -169,6 +176,8 @@ function submitHandlerNewPost(evt) {
   //editNewPostModal.classList.remove("modal_is-opened");
   closeModal(newPostModal);
   newPostFormElement.reset();
+  //todo : add parameters for button element and config:
+  disableButton(buttonEl);
 }
 
 //addCardFormEl.addEventListener("submit", submitHandlerNewPost);
